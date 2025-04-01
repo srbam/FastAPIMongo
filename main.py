@@ -3,7 +3,6 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from bson.objectid import ObjectId
 from fastapi import Response
-from fastapi.encoders import jsonable_encoder
 
 from pymongo import MongoClient
 
