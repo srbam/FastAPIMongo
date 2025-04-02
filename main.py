@@ -65,14 +65,6 @@ def query_items_by_parameters(
         "selection": selection
     }
 
-@app.get("/item/{id}", tags=["Items"])
-def query_items_by_id(id: str):
-    item = items.find_one({"_id": ObjectId(id)})
-    if not item:
-        raise HTTPException(status_code=404, detail=f"Id with {id} does not exist.")
-    item["_id"] = str(item["_id"])
-    return item
-
 @app.delete("/item/{id}", tags=["Items"])
 def delete_item_by_id(id: str):
     items.delete_one({"_id": ObjectId(id)})
